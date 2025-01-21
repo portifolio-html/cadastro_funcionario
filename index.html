@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Funcionários</title>
+    <link rel="shortcut icon" href="static/img/navegador.ico" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/style-home.css">
+</head>
+<body>
+    <div class="container-main">
+        <form action="/" method="post">
+            <span>Cadastro de Funcionários</span>
+            <div class="container-campos">
+                <input type="text" name="cod-funcionario" id="id-cod-funcionario" placeholder="ID">
+                <input type="text" name="funcionario" id="id-funcionario" placeholder="Nome do Funcionário *" required>
+                <input type="text" name="cpf" id="id-cpf" placeholder="CPF *" required>
+                <input type="text" name="rua" id="id-rua" placeholder="Logradouro">
+                <input type="text" name="numero" id="id-numero" placeholder="Numero">
+                <input type="text" name="bairro" id="id-bairro" placeholder="Bairro">
+                <input type="text" name="cidade" id="id-cidade" placeholder="Cidade">
+                <input type="text" name="telefone" id="id-telefone" placeholder="Telefone *" required>
+            </div>
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+</body>
+</html>
