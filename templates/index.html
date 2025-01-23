@@ -6,6 +6,32 @@
     <title>Cadastro de Funcionários</title>
     <link rel="shortcut icon" href="static/img/navegador.ico" type="image/x-icon">
     <link rel="stylesheet" href="static/css/style-home.css">
+    <script>
+        function cadastro_funcionarios() {
+            // Obtém os valores dos campos
+            const nome = document.getElementById("id-funcionario").value;
+            const cpfInput = document.getElementById("id-cpf");
+    
+            // Faz a requisição para o servidor
+            if (!nome.ok){
+            fetch(`/pesquisar?funcionario=${nome}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Preenche o campo CPF com o dado retornado
+                    if (data.cpf) {
+                        cpfInput.value = data.cpf;
+                    } else {
+                        cpfInput.value = "";
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro:", error);
+                });
+            }
+            cpfInput.value = "";
+        }
+    </script>
+    
 </head>
 <body>
     <div class="container-main">
@@ -13,7 +39,7 @@
             <span>Cadastro de Funcionários</span>
             <div class="container-campos">
                 <input type="text" name="cod-funcionario" id="id-cod-funcionario" placeholder="ID">
-                <input type="text" name="funcionario" id="id-funcionario" placeholder="Nome do Funcionário *" required>
+                <input type="text" name="funcionario" id="id-funcionario" placeholder="Nome do Funcionário *" required oninput="cadastro_funcionarios()">
                 <input type="text" name="cpf" id="id-cpf" placeholder="CPF *" required>
                 <input type="text" name="rua" id="id-rua" placeholder="Logradouro">
                 <input type="text" name="numero" id="id-numero" placeholder="Numero">
